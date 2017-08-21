@@ -1,1 +1,411 @@
-test
+_________________________________________________________________________
+Define data types:
+
+    strings (e.g. "dogs go woof!")
+    numbers (e.g. 4, 10)
+    booleans (e.g. false, 5 > 4)
+
+_________________________________________________________________________
+List of comparison operators:
+
+    Characters and Manipulating numbers, strings
+
+    ;   at the end of a line indicates where a statement ends
+    >   Greater than
+    <   Less than
+    <=  Less than or equal to
+    >=  Greater than or equal to
+    =   is for assignment
+    ==  Compare the value of two operands
+    === Equal to and Compare the value AND type of two operands
+    !== Not equal to
+
+    + and += operator can also be used to concatenate (add) strings.
+
+    %   Modulo divide first number by second then evaluates the remainder
+
+    string length (e.g. "Emily".length;)
+    substrings (e.g. "hi".substring(0, 1);)
+    console.log( )  Prints into the console whatever we put in the parentheses.
+
+_________________________________________________________________________
+Math
+
+    Code:
+        ( ) : control order of operations
+        *   : multiplication
+        /   : division
+        -   : subtraction
+        +   : addition
+
+    Examples:
+        100/10 evaluates to 10
+        "Jane".length + 5 evaluates to 9
+        5*(3+1) evaluates to 20
+_________________________________________________________________________
+If Statement
+
+    if ( "buzz".length == 4 ) {
+        console.log( "This is a true statement!" );
+    }
+_________________________________________________________________________
+else if condition
+
+    if ( "buzz".length > 3 )
+    {
+        console.log("You rock!");
+    }
+    else
+    {
+        // What should we do if the condition is false? Fill in here:
+        console.log("You suck!");
+
+    }
+_________________________________________________________________________
+Substring
+
+    console.log("January".substring (0,3));
+    console.log("Melbourne is great".substring (0, 12));
+    console.log("Hamburgers".substring (3,10));
+_________________________________________________________________________
+Variables
+    We store data values in variables. We can bring back the values of these variables by typing the variable name.
+
+    Code Concept:
+        var varName = data;
+
+    Example:
+        a. var myName = "Leng";
+        b. var myAge = 30;
+        c. var isOdd = true;
+
+    Code Sample 1:
+        <script>
+            var myAge = 38;
+            console.log(myAge);
+        </script>
+
+    Code Sample 2:
+        // Declare a variable on line 3 called
+        // myCountry and give it a string value.
+
+              var myCountry = "United States of America"
+
+        // Use console.log to print out the length of the variable myCountry.
+
+              console.log( myCountry.length );
+
+        // Use console.log to print out the first three letters of myCountry.
+
+              console.log( myCountry.substring(0,3) );
+
+        Evaluation:
+            24
+            Uni
+
+      Code Sample 3: Change Variable Values
+
+          // On line 2, declare a variable myName and give it your name.
+
+                var myName ="Julian";
+
+          // On line 4, use console.log to print out the myName variable
+
+                console.log(myName)
+
+          // On line 7, change the value of myName to be just the first
+          //2 letters of your name.
+
+                myName = myName.substring(0,2);
+
+          // On line 9, use console.log to print out the myName variable.
+
+                console.log (myName)
+_________________________________________________________________________
+How can you declare a class in JavaScript?
+
+      In javascript there's no classes like in Java, what we actually call a class is in reality a function simulating a class behaviour. For being so flexible, there are many ways to create a class in javascript, below you'll find 3 ways of doing that.
+
+          Class using function as a constructor:
+
+              function Person(name) {
+                  this.name = name;
+              }
+              // Creating an object
+              var person = new Person("Rafael");
+              person.name; // "Rafael"
+
+      It's very important to notice that you have to use the keyword new when creating a new instance of that class otherwise you will have logical problems regarding the this will reference window object.
+
+          Class Literal notation:
+
+                var person = {
+                    name: "",
+                    setName: function(name) {
+                        this.name = name;
+                    }
+                }
+                person.setName("Rafael");
+                person.name; // "Rafael"
+
+      In this example we don't use a function to define our class, we are creating a singleton object person with one attribute and one method. You can use that object straightaway, no instantiation in this case.
+      That notation is useful when you don't need to create instances of that class or you'll use it just once in your application.
+
+          Singleton through a function:
+
+                var person = new function() {
+                    this.setName = function(name) {
+                        this.name = name;
+                    }
+                    this.sayHi = function() {
+                        return "Hi, my name is " + this.name;
+                    }
+                }
+                person.setName("Rafael");
+                alert(person.sayHi()); // Hi, my name is Rafael
+
+      As you can see in the code snippet above, we have a function like the first example and besides we also have the new keyword before the function declaration. It means that we are creating one instance of that class at the same time we are declaring it.
+_________________________________________________________________________
+How do you organize JavaScript code?
+
+      // Declaring my main namespace
+      var myapplication = myapplication || {};
+
+      // Declaring modules usermodule
+      myapplication.usermodule = (function() {
+
+          // CODE to be executed immediately
+                // createMessage: only accessible inside this module
+
+          var createMessage = function(message) {
+              return "Hello! " + message;
+          }
+
+          return {
+              // sayHello is a public method
+              sayHello: function(message) {
+                  return createMessage(message);
+              }
+          }
+      })();
+
+      // Declaring another module
+      myapplication.adminmodule = (function(){
+          // your code here
+      })()
+      // This is how we call sayHello
+      myapplication.usermodule.sayHello("This is my module");
+_________________________________________________________________________
+Difference between == and === ?
+
+    Double equals == is used to compare the value of two operands:
+        "2" == 2; // true
+         2  == 2; // true
+
+    Triple equals === is used to compare the value AND type of two operands:
+        "2" == 2; // true
+         2  == 2; // true
+_________________________________________________________________________
+Difference between null and undefined
+
+    typeof null; // "object"            is an object with no value
+    typeof undefined; // "undefined"    is a type
+
+    var a;
+    var b = null;
+    a == b; // "true" because their values are the same
+    a === b; // "false". they have different types
+_________________________________________________________________________
+Have you used MVC in JS before? Why do you like/dislike?
+
+      As the UI gets more and more complex we need some good ways to keep it more and more maintainable and reusable, and Some MVC frameworks for javascript have been widely adopted lately and it's a good plus if you have already used before and knows what's the benefits of them. The most famous MVC frameworks are backbone.js and angular.js, it's hard to not hear about them.
+
+      There are many advantages in using these frameworks, I can point out some of them:
+
+          Organization:
+              Forces your webapp to follow a well structured pattern;
+
+          Maintainable:
+              With organization comes an easy to maintain code;
+
+          UI Binding:
+              Some frameworks allow you to do that. So everytime your model changes, the view reflects it and vice-versa;
+
+          Decoupled client:
+              MVC frameworks like backbone.js incentivise you to use REST API's though their urlRoot attribute in their Models;
+
+          Reusable components:
+              Create reusable visual components;
+
+          Single-page apps:
+              Build single-page apps with Ajax requests;
+
+          Friendly URL's:
+              Native support for client-side url mapping;
+_________________________________________________________________________
+How can you add a new function to a class already defined?
+_________________________________________________________________________
+What can you to improve page performance?
+
+    Use NO IMAGES or use sprite images in a single file.
+
+    Javascripts should be at the bottom of the page
+
+    Ensure parallel requests of your JS and CSS files.
+        If the content of the page is constructed by client-side JavaScript, then you should investigate inlining the relevant JavaScript modules to avoid extra network roundtrips. Similarly, leveraging server-side rendering can significantly improve first page load performance: render JS templates on the server, inline the results into HTML, and then use client-side templating once the application is loaded.
+
+        Many JavaScript libraries, such as JQuery, are used to enhance the page to add additional interactivity, animations, and other effects. However, many of these behaviors can be safely added after the ATF content is rendered. Investigate moving the execution and loading of such JavaScript until after the page is loaded.
+
+        Reference: https://developers.google.com/speed/docs/insights/mobile
+
+    Compress images
+
+    Browser Caching
+        very important to be set for static resources like JS and CSS files, images, PDFs and HTML. Caching is set in the HTTP header by informing browsers the expiry date or maximum age. Then browsers can load the last downloaded resource from the cache instead of request it again.
+_________________________________________________________________________
+Difference between html and xhtml?
+
+    XHTML is an HTML that follows the XML rules, which means a XHTML document must have well-formed markups in order to be rendered properly in all web browsers. Differently from XHTML, the HTML document can be rendered in most of the browsers even with markup errors such as no closing tags or wrong nested tags.
+
+      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+          <title></title>
+        </head>
+        <body>
+        </body>
+      </html>
+_________________________________________________________________________
+Where would you use Get or Post requests?
+      There are several technical differences between these two types of requests, regarding length limitation, security, caching and a few others. But if someone asks you WHEN would you use it, I'd say one of the most important points that any front-end developer should take into account is that we should only use GET for idempotent requests, it means requests that don't make significant changes in the backend system or database but if you do need to make inserts, updates or deletes in a database, trigger emails or any other major action, POST is recommended.
+
+_________________________________________________________________________
+JavaScript Common Patterns
+
+    Design patterns in question include the following:
+
+        1) MODULE = in object-oriented languages, modules are JavaScript "classes"
+
+            - JavaScript modules are the most prevalently used design patterns
+            - keeps particular pieces of code independent of other components
+            - provides loose coupling to support well-structured code
+            - In OOP object-oriented languages, modules are JavaScript "classes"
+            - One of the many advantages of classes is encapsulation - protecting states and behaviors from being accessed from other classes.
+            - allows for public and private (plus the lesser-know protected and privileged) access levels.
+            - Modules should be Immediately-Invoked-Function-Expressions (IIFE) to allow for private scopes - that is, a closure that protect variables and methods (however, it will return an object instead of a function).
+
+                    Code Pattern:
+
+                      (function() {
+
+                          // declare private variables and/or functions
+
+                          return {
+                            // declare public variables and/or functions
+                          }
+
+                      })();
+
+                    Code Pattern Example:
+
+                          var HTMLChanger = (function() {
+                            var contents = 'contents'
+
+                            var changeHTML = function() {
+                              var element = document.getElementById('attribute-to-change');
+                              element.innerHTML = contents;
+                            }
+
+                            return {
+                              callChangeHTML: function() {
+                                changeHTML();
+                                console.log(contents);
+                              }
+                            };
+
+                          })();
+
+                          HTMLChanger.callChangeHTML();       // Outputs: 'contents'
+                          console.log(HTMLChanger.contents);  // undefined
+
+        2) PROTOTYPE = used mainly for creating objects in performance-intensive situations
+                       Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+              The objects created are clones (shallow clones) of the original object that are passed around. One use case of the prototype pattern is performing an extensive database operation to create an object used for other parts of the application. If another process needs to use this object, instead of having to perform this substantial database operation, it would be advantageous to clone the previously created object.
+
+              To clone an object, a constructor must exist to instantiate the first object. Next, by using the keyword prototype variables and methods bind to the object's structure. Let's look at a basic example:
+
+              Code Pattern Example:
+
+                  var TeslaModelS = function() {
+                    this.numWheels    = 4;
+                    this.manufacturer = 'Tesla';
+                    this.make         = 'Model S';
+                  }
+
+                  TeslaModelS.prototype.go = function() {
+                    // Rotate wheels
+                  }
+
+                  TeslaModelS.prototype.stop = function() {
+                    // Apply brake pads
+                  }
+
+              Revealing Prototype Pattern
+
+                  Similar to Module pattern, the Prototype pattern also has a revealing variation. The Revealing Prototype Pattern provides encapsulation with public and private members since it returns an object literal.
+
+                  Since we are returning an object, we will prefix the prototype object with a function. By extending our example above, we can choose what we want to expose in the current prototype to preserve their access levels:
+
+              Code Pattern Example 2:
+
+                  var TeslaModelS = function() {
+                    this.numWheels    = 4;
+                    this.manufacturer = 'Tesla';
+                    this.make         = 'Model S';
+                  }
+
+                  TeslaModelS.prototype = function() {
+
+                    var go = function() {
+                      // Rotate wheels
+                    };
+
+                    var stop = function() {
+                      // Apply brake pads
+                    };
+
+                    return {
+                      pressBrakePedal: stop,
+                      pressGasPedal: go
+                    }
+
+                  }();
+
+        3) OBSERVER
+
+              There are many times when one part of the application changes, other parts needs to be updated. In AngularJS, if the $scope object updates, an event can be triggered to notify another component. The observer pattern incorporates just that - if an object is modified it broadcasts to dependent objects that a change has occurred.
+
+              Another prime example is the model-view-controller (MVC) architecture; The view updates when the model changes. One benefit is decoupling the view from the model to reduce dependencies.
+
+        Singleton
+
+    Each pattern consists of many properties, though, I will emphasize the following key points:
+
+        Context: Where/under what circumstances is the pattern used?
+        Problem: What are we trying to solve?
+        Solution: How does using this pattern solve our proposed problem?
+        Implementation: What does the implementation look like?
+
+
+
+_________________________________________________________________________
+CSS
+    _________________________________________________________________________
+    When would you use css float?
+        To float an element to the right or left
+    _________________________________________________________________________
+    When would you use css clear?
+        When you want an element on the left or right of the floating element not to wrap around it, you can use clear.
