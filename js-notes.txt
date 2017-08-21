@@ -282,6 +282,116 @@ Where would you use Get or Post requests?
       There are several technical differences between these two types of requests, regarding length limitation, security, caching and a few others. But if someone asks you WHEN would you use it, I'd say one of the most important points that any front-end developer should take into account is that we should only use GET for idempotent requests, it means requests that don't make significant changes in the backend system or database but if you do need to make inserts, updates or deletes in a database, trigger emails or any other major action, POST is recommended.
 
 _________________________________________________________________________
+Common DOM Methods 
+
+    Most common DOM Methods
+    https://www.impressivewebs.com/10-essential-dom-methods-techniques-for-practical-javascript/
+
+
+      1) getElementById
+
+              var myVariable = document.getElementById("my_element");
+              OR
+              var myVariable = document.getElementById(myElement);
+
+
+      2) getElementsByTagName
+
+              var myLinkCollection = document.getElementsByTagName("a");
+
+              for (i = 0; i < myLinkCollection.length; i++) {
+                if (myLinkCollection[i].className == "link_class") {
+                  myLinkCollection[i].onclick = function() {
+                    this.style.backgroundColor = "#f00";
+                  }
+                }
+              }
+
+
+      3) Node Methods
+
+            <ul id="list">
+              <li><a href="link1.html" class="link_one">Link Number One</a></li>
+              <li><a href="link2.html">Link Number Two</a></li>
+              <li><a href="link3.html">Link Number Three</a></li>
+              <li><a href="link4.html">Link Number Four</a></li>
+            </ul>
+
+            <script>
+              var myLinkList = document.getElementById("list");
+              var myFirstLink = myLinkList.childNodes[0].childNodes[0];
+              alert(myFirstLink.className);
+            </script>
+
+      4) createElement
+
+            <script>
+              var myNewListItem = document.createElement("li");
+              var myNewLink = document.createElement("a");
+            </script>
+
+
+      5) appendChild
+
+            <script>
+              var myNewListItem = document.createElement("li");
+              var myNewLink = document.createElement("a");
+
+              var myLinkList = document.getElementById("list");
+              myLinkList.appendChild(myNewListItem);
+              myLinkList.lastChild.appendChild(myNewLink);
+            </script>
+
+
+      6) removeChild
+
+            <script>
+              var myLinkList = document.getElementById("list");
+              var myRemovedLink = myLinkList.lastChild;
+              myLinkList.removeChild(myRemovedLink);
+            </script>
+
+
+      7) getAttribute
+
+            <ul id="list">
+              <li><a href="link1.html" class="link_one">Link Number One</a></li>
+              <li><a href="link2.html">Link Number Two</a></li>
+              <li><a href="link3.html">Link Number Three</a></li>
+              <li><a href="link4.html">Link Number Four</a></li>
+              <li><a href="link5.html" id="link_5" rel="external">Link Number Five</a></li>
+            </ul>
+
+            <script>
+              var myLinkFive = document.getElementById("link_5");
+              var myLinkAttribute = myLinkFive.getAttribute("rel");
+            </script>
+
+
+      8) setAttribute
+
+            <script>
+              var myLinkFive = document.getElementById("link_5");
+              myLinkFive.setAttribute("rel", "nofollow");
+            </script>
+
+
+      9) document.forms
+
+            <form id="my_form" method="post" action="form.html">
+
+              <input type="checkbox" value="one" name="options" id="option1" checked="checked" /> One<br />
+              <input type="checkbox" value="two" name="options" id="option2" /> Two<br />
+              <input type="checkbox" value="three" name="options" id="option3" /> Three<br />
+
+            </form>
+
+            <script>
+              var myCheckBoxOne = document.forms["my_form"]["option1"];
+              alert(myCheckBoxOne.checked);
+            </script>
+
+_________________________________________________________________________
 JavaScript Common Patterns
 
     Design patterns in question include the following:
