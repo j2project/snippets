@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='UTF-8'>
+
+<title>Card</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--[if !IE]><!-->
+
+<style type="text/css">
+
+/* ------------------------------------------------------------
+Card Wrap - Start
+------------------------------------------------------------ */
+
+	/* Generic Styling, for Desktops/Laptops */
+
+	#cardwrap > *{
+		-webkit-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out
+	}
+
+	#cardwrap {
+		margin:0px; padding:0px;
+	}
+
+	#cardwrap table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	/* Alternating Background Color */
+
+	#cardwrap tr:nth-of-type(odd) {
+		background: #eee
+	}
+
+	#cardwrap th {
+		background: #0038a5;
+		color: white;
+		font-weight: bold;
+	}
+
+	#cardwrap td,
+	#cardwrap th {
+		padding: 2px; 
+		/* border: 1px solid #ccc; */
+		text-align: left;
+	}
+
+
+	/*  Max width before this table exceeds browser size.
+	This query will take effect for any screen smaller than 760px and/or tablets. */
+
+	@media only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+
+	#cardwrap table,
+	#cardwrap thead,
+	#cardwrap tbody,
+	#cardwrap th,
+	#cardwrap td,
+	#cardwrap tr {
+		display: block
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+
+	#cardwrap thead tr {
+		position: absolute; top: -9999px; left: -9999px
+	}
+
+	#cardwrap tr { /* border: 1px solid #ccc; */ }
+
+	#cardwrap td {/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	#cardwrap td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/* CSS injected data labels */
+	#cardwrap table:nth-child(1) td:nth-of-type(1):before { content: "mc-01"; }
+	#cardwrap table:nth-child(1) td:nth-of-type(2):before { content: "mc-02"; }
+	#cardwrap table:nth-child(1) td:nth-of-type(3):before { content: "mc-03"; }
+	#cardwrap table:nth-child(1) td:nth-of-type(4):before { content: "mc-04"; }
+
+	#cardwrap table:nth-child(2) td:nth-of-type(1):before { content: "mc-05"; }
+	#cardwrap table:nth-child(2) td:nth-of-type(2):before { content: "mc-06"; }
+	#cardwrap table:nth-child(2) td:nth-of-type(3):before { content: "mc-07"; }
+	#cardwrap table:nth-child(2) td:nth-of-type(4):before { content: "mc-08"; }
+
+	#cardwrap table:nth-child(3) td:nth-of-type(1):before { content: "mc-09"; }
+	#cardwrap table:nth-child(3) td:nth-of-type(2):before { content: "mc-10"; }
+	#cardwrap table:nth-child(3) td:nth-of-type(3):before { content: "mc-11"; }
+	#cardwrap table:nth-child(3) td:nth-of-type(4):before { content: "mc-12"; }
+
+	#cardwrap table:nth-child(4) td:nth-of-type(1):before { content: "mc-13"; }
+	#cardwrap table:nth-child(4) td:nth-of-type(2):before { content: "mc-14"; }
+	#cardwrap table:nth-child(4) td:nth-of-type(3):before { content: "mc-15"; }
+	#cardwrap table:nth-child(4) td:nth-of-type(4):before { content: "mc-16"; }
+
+	}
+
+	/* Smartphones (portrait and landscape) */
+
+	@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 480px) {
+		div#cardwrap  {
+			padding: 0;
+			margin: 0;
+			width: 320px;
+		}
+	}
+
+	/* iPads (portrait and landscape) */
+	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+		div#cardwrap  {width: 495px}
+	}
+
+/* ------------------------------------------------------------
+Card Wrap - End
+------------------------------------------------------------ */
+
+</style>
+
+<!--<![endif]-->
+
+
+
+</head>
+
+<body>
+
+<div id="cardwrap">
+
+	<table>
+		<thead>
+		<tr>
+			<th>mc01</th>
+			<th>mc02</th>
+			<th>mc03</th>
+			<th>mc04</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>item 1</td>
+			<td>item 1</td>
+			<td>item 1</td>
+			<td>item 1</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<thead>
+		<tr>
+			<th>mc05</th>
+			<th>mc06</th>
+			<th>mc07</th>
+			<th>mc08</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>item 1</td>
+			<td>item 1</td>
+			<td>item 1</td>
+			<td>item 1</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<thead>
+		<tr>
+			<th>mc09</th>
+			<th>mc10</th>
+			<th>mc11</th>
+			<th>mc12</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>item 1</td>
+			<td>item 1</td>
+			<td>item 1</td>
+			<td>item 1</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<thead>
+		<tr>
+			<th>mc13</th>
+			<th>mc14</th>
+			<th>mc15</th>
+			<th>mc16</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>item 1</td>
+			<td>item 1</td>
+			<td>item 1</td>
+			<td>item 1</td>
+		</tr>
+		</tbody>
+	</table>
+
+	</div>
+
+</body>
+
+</html>

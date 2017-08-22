@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+		<style type="text/css">
+
+				@media only screen and (max-width: 800px) {
+					/* Force table to not be like tables anymore */
+					#no-more-tables table,
+					#no-more-tables thead,
+					#no-more-tables tbody,
+					#no-more-tables th,
+					#no-more-tables td,
+					#no-more-tables tr {
+					display: block;
+					}
+
+					/* Hide table headers (but not display: none;, for accessibility) */
+					#no-more-tables thead tr {
+					position: absolute;
+					top: -9999px;
+					left: -9999px;
+					}
+
+					#no-more-tables tr { border: 1px solid #ccc; }
+
+					#no-more-tables td {
+					/* Behave  like a "row" */
+					border: none;
+					border-bottom: 1px solid #eee;
+					position: relative;
+					padding-left: 50%;
+					white-space: normal;
+					text-align:left;
+					}
+
+					#no-more-tables td:before {
+					/* Now like a table header */
+					position: absolute;
+					/* Top/left values mimic padding */
+					top: 6px;
+					left: 6px;
+					width: 45%;
+					padding-right: 10px;
+					white-space: nowrap;
+					text-align:left;
+					font-weight: bold;
+					}
+
+					/* Label the data */
+					#no-more-tables td:before { content: attr(data-title); }
+				}
+
+		</style>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12"></div>
+
+        <div id="no-more-tables">
+            <table class="col-md-12 table-bordered table-striped table-condensed cf">
+        		<thead class="cf">
+        			<tr>
+        				<th>Code</th>
+        				<th>Company</th>
+        				<th class="numeric">Price</th>
+        				<th class="numeric">Change</th>
+        				<th class="numeric">Change %</th>
+        				<th class="numeric">Open</th>
+        				<th class="numeric">High</th>
+        				<th class="numeric">Low</th>
+        				<th class="numeric">Volume</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+							<tr>
+        				<td data-title="Code">test</td>
+        				<td data-title="Company">test</td>
+        				<td data-title="Price" class="numeric">test</td>
+        				<td data-title="Change" class="numeric">test</td>
+        				<td data-title="Change %" class="numeric">test</td>
+        				<td data-title="Open" class="numeric">test</td>
+        				<td data-title="High" class="numeric">test</td>
+        				<td data-title="Low" class="numeric">test</td>
+        				<td data-title="Volume" class="numeric">test</td>
+        			</tr>
+        		</tbody>
+        	</table>
+        </div>
+
+    </div>
+
+    <div class="row"></div>
+</div>
+
+</body>
+</html>

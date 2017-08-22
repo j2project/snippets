@@ -1,0 +1,233 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0049)http://dbushell.com/demos/tables/rt_05-01-12.html -->
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+	 
+<META charset="UTF-8">	 
+<META name="viewport" content="width=device-width, initial-scale=1">
+	 <TITLE>Responsive Tables</TITLE>	 
+<STYLE>
+
+	.cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	* html .cf { zoom: 1; }
+	*:first-child+html .cf { zoom: 1; }
+
+	body, h1, h2, h3 { margin: 0; font-size: 100%; font-weight: normal; }
+
+	code { padding: 0 .5em; background: #fff2b2; }
+
+	body { padding: 1.25em; font-family: 'Helvetica Neue', Arial, sans-serif; background: #eee; }
+
+	h1 { font-size: 2em; }
+	h2 { font-size: 1.5em; }
+	h1, h2 { margin: .5em 0; font-weight: bold; }
+
+	.rt { width: 100%; font-size: 0.75em;/*12*/ line-height: 1.25em;/*15*/ border-collapse: collapse; border-spacing: 0; }
+
+	.rt th,
+	.rt td { margin: 0; padding: 0.4166em;/*10*/ vertical-align: top; border: 1px solid #babcbf; background: #fff; }
+	.rt th { text-align: left; background: #fff2b2; }
+
+
+	@media only screen and (max-width: 40em) { /*640*/
+
+		#rt1 { display: block; position: relative; width: 100%; }
+		#rt1 thead { display: block; float: left; }
+		#rt1 tbody { display: block; width: auto; position: relative; overflow-x: auto; white-space: nowrap; }
+		#rt1 thead tr { display: block; }
+		#rt1 th { display: block; }
+		#rt1 tbody tr { display: inline-block; vertical-align: top; }
+		#rt1 td { display: block; min-height: 1.25em; }
+
+		#rt2 { display: block; position: relative; width: 100%; }
+		#rt2 thead { display: block; float: left; }
+		#rt2 tbody { display: -webkit-box; overflow-x: auto; }
+		#rt2 th,
+		#rt2 tr,
+		#rt2 td { display: block; }
+
+		/* sort out borders */
+
+		.rt th { border-bottom: 0; }
+		.rt td { border-left: 0; border-right: 0; border-bottom: 0; }
+		.rt tbody tr { border-right: 1px solid #babcbf; }
+		.rt th:last-child,
+		.rt td:last-child { border-bottom: 1px solid #babcbf; }
+
+	}
+
+	</STYLE>
+  
+<META name="GENERATOR" content="MSHTML 11.00.9600.17924"></HEAD> 
+<BODY>
+<H1>Responsive Tables (2)</H1>
+<P><STRONG>Introduction:</STRONG> <A href="http://dbushell.com/2012/01/05/responsive-tables-2">Responsive 
+Tables</A> — 5th January, 2012.</P>
+<P>The following tables change orientation on small screens. A horizontal scroll 
+or swipe is used to view more data. The table head is always visible.</P>
+<TABLE class="rt cf" id="rt1">
+  <THEAD class="cf">
+  <TR>
+    <TH>Selector</TH>
+    <TH>IE7</TH>
+    <TH>IE8</TH>
+    <TH>IE9</TH>
+    <TH>FF 3.6</TH>
+    <TH>FF 4</TH>
+    <TH>Safari 5</TH>
+    <TH>Chrome 5</TH>
+    <TH>Opera 10</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD>* selector</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD></TR>
+  <TR>
+    <TD>:before :after</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD></TR>
+  <TR>
+    <TD>:nth-of-type()</TD>
+    <TD>no</TD>
+    <TD>no</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>incorrect</TD></TR>
+  <TR>
+    <TD>background-clip</TD>
+    <TD>no</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>-webkit-</TD>
+    <TD>-webkit-</TD>
+    <TD>buggy</TD></TR>
+  <TR>
+    <TD>background-repeat</TD>
+    <TD>incomplete</TD>
+    <TD>incomplete</TD>
+    <TD>yes</TD>
+    <TD>incomplete</TD>
+    <TD>incomplete</TD>
+    <TD>incorrect</TD>
+    <TD>incorrect</TD>
+    <TD>yes</TD></TR>
+  <TR>
+    <TD>::selection</TD>
+    <TD>no</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>-moz-</TD>
+    <TD>-moz-</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD></TR></TBODY></TABLE>
+<P>The trick is to use <CODE>display: inline-block;</CODE> on the table rows and 
+<CODE>white-space: nowrap;</CODE> on the table body.</P><BR>
+<H2>CSS3 Flexible Box model</H2>
+<P>This table replicates the same layout using <CODE>display: 
+-webkit-box;</CODE></P>
+<TABLE class="rt cf" id="rt2">
+  <THEAD class="cf">
+  <TR>
+    <TH>Selector</TH>
+    <TH>IE7</TH>
+    <TH>IE8</TH>
+    <TH>IE9</TH>
+    <TH>FF 3.6</TH>
+    <TH>FF 4</TH>
+    <TH>Safari 5</TH>
+    <TH>Chrome 5</TH>
+    <TH>Opera 10</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD>* selector</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD></TR>
+  <TR>
+    <TD>:before :after</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD></TR>
+  <TR>
+    <TD>:nth-of-type()</TD>
+    <TD>no</TD>
+    <TD>no</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>incorrect</TD></TR>
+  <TR>
+    <TD>background-clip</TD>
+    <TD>no</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>-webkit-</TD>
+    <TD>-webkit-</TD>
+    <TD>buggy</TD></TR>
+  <TR>
+    <TD>background-repeat</TD>
+    <TD>incomplete</TD>
+    <TD>incomplete</TD>
+    <TD>yes</TD>
+    <TD>incomplete</TD>
+    <TD>incomplete</TD>
+    <TD>incorrect</TD>
+    <TD>incorrect</TD>
+    <TD>yes</TD></TR>
+  <TR>
+    <TD>::selection</TD>
+    <TD>no</TD>
+    <TD>no</TD>
+    <TD>yes</TD>
+    <TD>-moz-</TD>
+    <TD>-moz-</TD>
+    <TD>yes</TD>
+    <TD>yes</TD>
+    <TD>yes</TD></TR></TBODY></TABLE><BR>
+<P>This concept needs further work to achieve cross-browser support but I think 
+it has potential!</P>
+<SCRIPT type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-9497100-1']);
+_gaq.push(['_setDomainName', 'dbushell.com']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</SCRIPT>
+ </BODY></HTML>
