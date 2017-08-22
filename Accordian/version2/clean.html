@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="dynApp">
+  <head>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.3.0.js"></script>
+    <script src="example.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div ng-controller="AccordionDemoCtrl">
+  <accordion>
+    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+      <ul>
+        <li ng-repeat="item in group.items">{{item['item-title']}}</li>
+      </ul>
+    </accordion-group>
+  </accordion>
+</div>
+
+<script>
+
+  angular.module('dynApp', ['ui.bootstrap']);
+  function AccordionDemoCtrl($scope) {
+
+    $scope.groups = [
+      {
+        title: "Dynamic Group Header - 1",
+        items: [{"item-title": "item 1"}, {"item-title": "item 2"}]
+      },
+      {
+        title: "Dynamic Group Header - 2",
+        items: [{"item-title": "item 3"}, {"item-title": "item 4"}]
+      }
+    ];
+  }
+
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+  <script src="example.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .isOpen {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+
+    <div accordion="" close-others="true">
+      <div accordion-group="" ng-init="status = {isOpen: false}" is-open="status.isOpen">
+        <div accordion-heading="">
+          <div ng-class="{isOpen: status.isOpen}">MSDS</div>
+        </div>
+        <ul>
+          <li><a href="" target="_blank">BIO-CHLOR</a>
+          </li>
+          <li><a href="" target="_blank">BIO-CHLOR - Australia</a>
+          </li>
+        </ul>
+      </div>
+      <div accordion="" close-others="true">
+        <div accordion-group="" ng-init="status = {isOpen: false}" is-open="status.isOpen">
+          <div accordion-heading="">
+            <div ng-class="{isOpen: status.isOpen}">NUTRIENT PROFILES</div>
+          </div>
+          <div accordion="" close-others="true">
+            <div accordion-group="nested" ng-init="status = {isOpen: false}" is-open="status.isOpen">
+              <div accordion-heading="">
+                <div ng-class="{isOpen: status.isOpen}">Nested 1</div>
+              </div>
+              <ul>
+                <li><a href="" target="_blank">CPM</a>
+                </li>
+                <li><a href="" target="_blank">CNCPS</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div accordion="" close-others="true">
+            <div accordion-group="nested" ng-init="status = {isOpen: false}" is-open="status.isOpen">
+              <div accordion-heading="">
+                <div ng-class="{isOpen: status.isOpen}">Nested 2</div>
+              </div>
+              <ul>
+                <li><a href="" target="_blank">NRC</a>
+                </li>
+                <li><a href="" target="_blank">DALEX</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

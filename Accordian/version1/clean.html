@@ -1,0 +1,190 @@
+<!doctype html>
+<html ng-app="dynAcc">
+
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+    <script src="example.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div ng-controller="AccordionDemoCtrl">
+
+  <button class="btn" ng-click="groups[0].open = !groups[0].open">Toggle first open</button>
+  <button class="btn" ng-click="groups[1].open = !groups[1].open">Toggle second open</button>
+  <button class="btn" ng-click="groups[2].open = !groups[2].open">Toggle Third open</button>
+
+  <accordion>
+    <accordion-group ng-repeat="group in groups" heading="{{group.title}}" is-open="group.open">
+      {{group.content}}
+    </accordion-group>
+  </accordion>
+
+
+</div>
+
+<script>
+// var adminModule=angular.module('admin');   // This syntax get the module
+// adminModule.controller('AdminContentController',
+//     ['$scope', 'entityService', 'gridService', 'gridSelectService', 'localStorageService',
+//     function ($scope, entityService, gridService, gridSelectService, localStorageService) {
+//         $scope.entityType = 'Content';
+
+<!-- ///////////////////////////////////////////////////////////// -->
+
+// var mainApp=angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);   // This syntax get the module
+// mainApp.controller('AccordionDemoCtrl',
+//     ['$scope', 'ui.bootstrap', 'ngAnimate', 'ui.bootstrap',
+//     function ($scope, ui.bootstrap, ngAnimate, ui.bootstrap) {
+//       $scope.oneAtATime = true;
+//       $scope.appTitle = 'eProcess2.0 - Notification History'; //Application Title
+//       $scope.case = 'T0000000.0'; //Case Bind
+//       $scope.groups = [
+//         {
+//           title: 'Dynamic Accordion 1',
+//           content: 'content binded',
+//           comType: 'Appointment',
+//           caseid: '0000000.0.1',
+//           data: {
+//             "inboxType": "content-rTable",
+//             "class" : "rTable",
+//             "title" : "Responsive Table (rTable)",
+//             "data" : "Responsive Table (rTable)",
+//             "reason" : "because .rTable is cool.",
+//             "date" : "Day, MM/DD/YYYYY",
+//             "time" : "00:00 AM",
+//             "physicianName" : "physicianName",
+//             "physicianId" : "01234",
+//             "physicianType" : "value is any specialty type",
+//             "address1" : "address1",
+//             "address2" : "address2",
+//             "city" : "city",
+//             "state" : "state",
+//             "zipcode" : "zipcode",
+//             "mapUrl" : "mapUrl",
+//             "document" : "Document Link",
+//             "documentURL" : "documentURL",
+//             "ssrsID" : "ssrs.claimant.case.appt",
+//             "upload" : "Upload",
+//             "uploadURL" : "uploadURL"
+//           }
+//         },
+//         {
+//           title: 'Dynamic Accordion 2',
+//           content: 'content binded',
+//           comType: 'Appointment',
+//           caseid: '0000000.0.2',
+//           data: {
+//             "inboxType": "content-rTable",
+//             "class" : "rTable",
+//             "title" : "Responsive Table (rTable)",
+//             "data" : "Responsive Table (rTable)",
+//             "reason" : "because .rTable is cool.",
+//             "date" : "Day, MM/DD/YYYYY",
+//             "time" : "00:00 AM",
+//             "physicianName" : "physicianName",
+//             "physicianId" : "01234",
+//             "physicianType" : "value is any specialty type",
+//             "address1" : "address1",
+//             "address2" : "address2",
+//             "city" : "city",
+//             "state" : "state",
+//             "zipcode" : "zipcode",
+//             "mapUrl" : "mapUrl",
+//             "document" : "Document Link",
+//             "documentURL" : "documentURL",
+//             "ssrsID" : "ssrs.claimant.case.appt",
+//             "upload" : "Upload",
+//             "uploadURL" : "uploadURL"
+//           }
+//         },
+//         {
+//           title: 'Dynamic Accordion 3',
+//           content: 'content binded',
+//           comType: 'Appointment',
+//           caseid: '0000000.0.3',
+//           data: {
+//             "inboxType": "content-rTable",
+//             "class" : "rTable",
+//             "title" : "Responsive Table (rTable)",
+//             "data" : "Responsive Table (rTable)",
+//             "reason" : "because .rTable is cool.",
+//             "date" : "Day, MM/DD/YYYYY",
+//             "time" : "00:00 AM",
+//             "physicianName" : "physicianName",
+//             "physicianId" : "01234",
+//             "physicianType" : "value is any specialty type",
+//             "address1" : "address1",
+//             "address2" : "address2",
+//             "city" : "city",
+//             "state" : "state",
+//             "zipcode" : "zipcode",
+//             "mapUrl" : "mapUrl",
+//             "document" : "Document Link",
+//             "documentURL" : "documentURL",
+//             "ssrsID" : "ssrs.claimant.case.appt",
+//             "upload" : "Upload",
+//             "uploadURL" : "uploadURL"
+//           }
+//         },
+//         {
+//           title: 'Dynamic Accordion 4',
+//           content: 'content binded',
+//           comType: 'Appointment',
+//           caseid: '0000000.0.4',
+//           data: {
+//             "inboxType": "content-rTable",
+//             "class" : "rTable",
+//             "title" : "Responsive Table (rTable)",
+//             "data" : "Responsive Table (rTable)",
+//             "reason" : "because .rTable is cool.",
+//             "date" : "Day, MM/DD/YYYYY",
+//             "time" : "00:00 AM",
+//             "physicianName" : "physicianName",
+//             "physicianId" : "01234",
+//             "physicianType" : "value is any specialty type",
+//             "address1" : "address1",
+//             "address2" : "address2",
+//             "city" : "city",
+//             "state" : "state",
+//             "zipcode" : "zipcode",
+//             "mapUrl" : "mapUrl",
+//             "document" : "Document Link",
+//             "documentURL" : "documentURL",
+//             "ssrsID" : "ssrs.claimant.case.appt",
+//             "upload" : "Upload",
+//             "uploadURL" : "uploadURL"
+//           }
+//         }
+//       ];
+//
+//     });
+
+<!-- ///////////////////////////////////////////////////////////// -->
+
+  angular.module('dynAcc', ['ui.bootstrap']);
+  function AccordionDemoCtrl($scope) {
+    $scope.groups = [
+      {
+        title: "Dynamic Group Header - 1",
+        content: "Dynamic Group Body - 1",
+        open: false
+      },
+      {
+        title: "Dynamic Group Header - 2",
+        content: "Dynamic Group Body - 2",
+        open: false
+      },
+      {
+        title: "Dynamic Group Header - 3",
+        content: "Dynamic Group Body - 3",
+        open: false
+      }
+    ];
+  }
+</script>
+
+  </body>
+
+</html>

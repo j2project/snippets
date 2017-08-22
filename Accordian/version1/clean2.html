@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  </head>
+
+  <body ng-app="dynAcc">
+
+  <div ng-controller="AccordionDemoCtrl">
+
+    <button class="btn" ng-click="groups[0].open = !groups[0].open">Accordion 1</button>
+    <button class="btn" ng-click="groups[1].open = !groups[1].open">Accordion 2</button>
+    <button class="btn" ng-click="groups[2].open = !groups[2].open">Accordion 3</button>
+
+    <accordion>
+      <accordion-group ng-repeat="group in groups" heading="{{group.title}}" is-open="group.open">
+        {{group.content}}
+      </accordion-group>
+    </accordion>
+
+
+  </div>
+
+  <script>
+
+    angular.module('dynAcc', ['ui.bootstrap']);
+    function AccordionDemoCtrl($scope) {
+      $scope.groups = [
+        {
+          title: "Dynamic Group Header - 1",
+          content: "Dynamic Group Body - 1",
+          open: false
+        },
+        {
+          title: "Dynamic Group Header - 2",
+          content: "Dynamic Group Body - 2",
+          open: false
+        },
+        {
+          title: "Dynamic Group Header - 3",
+          content: "Dynamic Group Body - 3",
+          open: false
+        }
+      ];
+    }
+  </script>
+
+  </body>
+
+</html>

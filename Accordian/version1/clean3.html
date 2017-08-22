@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+
+  <head>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+
+  </head>
+
+<body>
+
+  <div ng-app="dynAcc">
+
+    <div class="container" ng-controller="AccordionDemoCtrl">
+
+      <div class="col-md-3">
+        <button class="btn" ng-click="groups[0].open = !groups[0].open">Accordion 1</button>
+        <button class="btn" ng-click="groups[1].open = !groups[1].open">Accordion 2</button>
+        <button class="btn" ng-click="groups[2].open = !groups[2].open">Accordion 3</button>
+      </div>
+
+      <div class="col-md-9">
+        <accordion>
+          <accordion-group ng-repeat="group in groups" heading="{{group.title}}" is-open="group.open">
+            <h2>{{group.title}}</h2>
+            <p>{{group.content}}</p>
+            <p>{{group.open}}</p>
+            <p>{{group.notes}}</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Country</th>
+                  <th>City</th>
+                  <th>Blah</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="apt in group.apt">
+                  <td>{{apt.Name}}</td>
+                  <td>{{apt.Country}}</td>
+                  <td>{{apt.City}}</td>
+                  <td>{{apt.blah}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </accordion-group>
+        </accordion>
+      </div>
+
+
+    </div>
+
+  <script>
+
+    angular.module('dynAcc', ['ui.bootstrap']);
+    function AccordionDemoCtrl($scope) {
+
+      $scope.groups = [
+        {
+          title: "Dynamic Group Header - 1",
+          content: "Dynamic Group Body - 1",
+          open: false,
+          apt: [
+            {
+              Name : "Second Blaha",
+              Country : "BoooYa",
+              City : "dudududdhh",
+              blah : "Bluuuuuuu"
+            },
+            {
+              Name : "Third Blaha",
+              Country : "3 BoooYa",
+              City : "three dudududdhh",
+              blah : "three Bluuuuuuu"
+            }
+          ],
+          notes:"Lorem ipsum"
+        },
+        {
+          title: "Dynamic Group Header - 2",
+          content: "Dynamic Group Body - 2",
+          open: false
+        },
+        {
+          title: "Dynamic Group Header - 3",
+          content: "Dynamic Group Body - 3",
+          open: false
+        }
+      ];
+
+      $scope.myObj = {
+        Name : "Alfreds Futterkiste",
+        Country : "Germany",
+        City : "Berlin",
+        blah : "Bluuuuuuu"
+      }
+
+
+
+    }
+  </script>
+
+
+
+</div>
+
+</body>
+
+</html>

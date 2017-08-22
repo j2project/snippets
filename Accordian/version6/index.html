@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  <script type="text/javascript" src="http:////cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.min.js"></script>
+
+  <style type="text/css">
+
+  .panel-title > a {
+    cursor: pointer
+  }
+
+  </style>
+
+  <title>angular bootstrap</title>
+
+
+</head>
+
+<body>
+
+<div ng-app="myapp">
+  <div ng-controller="AccordionDemoCtrl">
+    <label class="checkbox">
+        <input type="checkbox" ng-model="oneAtATime" />Open only one at a time</label>
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="Static Header">This content is straight in the template.</accordion-group>
+        <accordion-group heading="{{group.title}}" ng-repeat="group in groups">{{group.content}}</accordion-group>
+        <accordion-group heading="Dynamic Body Content">
+            <p>The body of the accordion group grows to fit the contents</p>
+            <button class="btn btn-small" ng-click="addItem()">Add Item</button>
+            <div ng-repeat="item in items">{{item}}</div>
+        </accordion-group>
+    </accordion>
+</div>
+</div>
+
+<script type='text/javascript'>
+
+    var app = angular.module('myapp', ['ui.bootstrap']);
+
+    function AccordionDemoCtrl($scope) {
+
+        $scope.oneAtATime = true;
+
+        $scope.groups = [{
+            title: "Dynamic Group Header - 1",
+            content: "Dynamic Group Body - 1"
+        }, {
+            title: "Dynamic Group Header - 2",
+            content: "Dynamic Group Body - 2"
+        }];
+
+        $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+        $scope.addItem = function () {
+            var newItemNo = $scope.items.length + 1;
+            $scope.items.push('Item ' + newItemNo);
+        };
+    }
+
+</script>
+
+
+</body>
+
+</html>
