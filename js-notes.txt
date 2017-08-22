@@ -21,6 +21,9 @@ List of comparison operators:
     !== Not equal to
 
     + and += operator can also be used to concatenate (add) strings.
+    
+    ++ increases the integer by one
+    += increases the integer by the number of your choice.
 
     %   Modulo divide first number by second then evaluates the remainder
 
